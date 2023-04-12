@@ -1,0 +1,86 @@
+<html>
+<head>
+  </head>
+    <body>
+    <h1> PL/SQL Package</h1>
+    <p>A package is a way of logically storing the subprograms like procedures, functions, exception or cursor into a single common unit. A package can be defined as an oracle object that is compiled and stored in the database.</p>
+
+    <h2>Advantages Of Package</h2>
+    <p><b>1.</b>It gives modularity to our code.  <br>
+       <b>2.</b>It helps to design the application easily. <br>
+       <b>3.</b> PLSQL Package helps to hide information with the help of public and private items, data types, and subprograms.  <br>
+       <b>4.</b>package allows maintaining information over all the transactions without requiring to store it in the database.  <br>
+      <b>5.</b> Packages help improve performance of execution.</p>
+      </p>
+    
+    <h2>To create a package we create two things : </h2>
+      <p>(i) Package specification <br>
+       (ii) Package body</p><br><br>
+
+
+    <p><b> (i) Package specification : </b>In package specification we can declare the named procedure and named function. Package specification consists of a declaration of all the public variables, cursors, objects, procedures, functions, and exception.The elements which are all declared in the specification can be accessed from outside of the package. Such elements are known as a public element. The package specification is a standalone element that means it can exist alone without package body.</p> 
+    
+    <h2>Syntax  </h2>
+    <p> CREATE [OR REPLACE] PACKAGE package_name IS <br>
+        procedure_specification; <br>
+        Function_specification;<br>
+        exception_declaration; <br>
+        END [package_name]; </p> <br>
+
+        <p><b>(ii) Package body : </b>It consists of the definition of all the elements that are present in the package specification. It can also have a definition of elements that are not declared in the specification, these elements are called private elements and can be called only from inside the package.</p> 
+        
+        <h2>Syntax of Package body </h2>
+    <p> CREATE [OR REPLACE] PACKAGE  BODY package_name IS <br>
+        procedure_defination; <br>
+        Function_defination;<br>
+        [EXCEPTION <br>
+        exception_handlers]; <br>
+        END [package_name]; </p> <br>
+
+
+        <h2>Example </h2>
+        <p>create or replace package pack As  <br>
+          procedure p1(x number); <br>
+          function fun(y number) return number; <br>
+          end pack; </p><br>
+          <img src="./screenshot/package created1 - Copy.png"><br><br><br>
+
+
+          <h2>Example </h2>
+          <p>create or replace package body pack As<br><br> 
+            procedure P1(x NUMBER) IS    <br>
+            begin   <br>  
+            dbms_output.put_line('Its a procedure'); <br>
+            Dbms_output.put_line('The procedure output is : '||x); <br> 
+            end P1;  <br>
+             <br>
+            function fun(y number) return number IS  <br>
+            num number := 100; <br>     
+            begin  <br>
+            Dbms_output.put_line('Its a function');  <br>    
+            num := y+num;  <br>
+            return(num);  <br>
+            end fun;  <br>
+             <br>
+            end pack; <br> </p>
+
+           <h3><img src="./screenshot/package body1 - Copy.png"></h3><br><br>
+
+            <h1>Call a package</h1>
+            <h2>Example </h2>
+            <p>begin  <br>
+              pack.p1(40); <br>
+              dbms_output.put_line('The fuction output is : '||pack.fun(100)); <br>
+              end;</p>
+
+              <img src="./screenshot/call package1.png"><br><br><br>
+
+              <h1>Drop a package</h1>
+              <p>drop package pack;</p>
+              <img src="./screenshot/drop package1.png"><br><br><br><br><br>
+              </body>
+              </html>
+
+
+
+          

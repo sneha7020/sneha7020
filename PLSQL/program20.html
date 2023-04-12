@@ -1,0 +1,53 @@
+<html>
+    <head>
+
+    </head>
+    <body>     
+ <h1>PLSQL/ Function</h1>
+            
+                <p>The PL/SQL Function is very similar to PL/SQL Procedure. The main difference between procedure and a function is, a function must always return a value, and on the other hand a procedure may or may not return a value. Except this, all the other things of PL/SQL procedure are true for PL/SQL function too.</p>
+            
+                <h2>Syntax</h2><br>
+                <p>CREATE [OR REPLACE] FUNCTION function_name <br>
+                   [(parameter1 [mode 1] datatype1, <br>
+                   parameter2 [mode 2] datatype2, <br>
+                   .....)]  
+                   RETURN datatype IS <br>
+                   BEGIN <br>
+                   PL/SQL executed statements <br>
+                   [Exception <br>
+                      Exception handlers] <br>
+                    END [function_name];
+                   </p><br>
+            
+                   <h2>Example</h2>
+                   <p>create or replace function fun(x number, y number) <br>
+                    return number IS <br>
+                    z number; <br>
+                    begin <br>
+                    dbms_output.put_line('Its is a function');  <br>  
+                    return x+y+100; <br>
+                    end fun;</p><br>
+                   <img src="../PLSQL/screenshot/function created1.png"><br><br><br>
+            
+                   <h2>Calling a function</h2>
+                <p>A function may accept one or many parameters, but must return a single value. you invoke function as part of PL/SQL expression, using variable to hold the returned value.</p><br>
+            
+                <li>Example of calling a function</li>
+                <p>begin  <br>
+                  Dbms_output.put_line('The result is : '||fun(10,20)); <br>
+                  end;</p><br>
+                <img src="../PLSQL/screenshot/calling function1.png"><br><br><br>
+            
+                <h1>Dropping a function</h1>
+                <p>To drop a function, DROP FUNCTION statement is used. In order to drop a function, One must either own the function or have DROP ANY PROCEDURE system privilege.</p><br>
+            
+                <h2>Syntax of Drop a function</h2>
+                <p>DROP FUNCTION function_name;</p><br>
+            
+                <h2>Example of Drop a Procedure</h2>
+                <p>drop function fun;</p>
+                <img src="../PLSQL/screenshot/drop function1.png"><br><br><br><br><br>
+            
+    </body>
+</html>
